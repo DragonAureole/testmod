@@ -2,6 +2,8 @@ package net.dragon.testmod;
 
 import com.mojang.logging.LogUtils;
 import net.dragon.testmod.item.Items;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -34,7 +36,7 @@ public class TestMod
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
-
+        modEventBus.addListener(this::addCreative);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
@@ -44,6 +46,11 @@ public class TestMod
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS)
+        {
+                event.accept(Items.BALL);
+        }
+
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
