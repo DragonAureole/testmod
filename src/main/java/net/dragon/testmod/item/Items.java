@@ -14,9 +14,12 @@ public class Items {
     public static final RegistryObject<Item> BALL = ITEMS.register("ball",
             () -> new Item(new Item.Properties()));
 
+    public static final  RegistryObject<Item> SQUARE = ITEMS.register("square",
+            () -> new Item(new Item.Properties()));
+
 
     public static void register(IEventBus event) {
-        Items.register(event);
+        ITEMS.register(event);
 
     }
 }

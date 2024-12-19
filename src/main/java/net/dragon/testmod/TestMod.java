@@ -49,6 +49,7 @@ public class TestMod
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS)
         {
                 event.accept(Items.BALL);
+                event.accept(Items.SQUARE);
         }
 
     }
